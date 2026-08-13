@@ -1,0 +1,36 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: concurrent-balance-service
+    ports:
+      - "8080:8080"
+
+    depends_on: postgres
+
+    restart: unless-stopped
+
+
+  postgres:
+    image: postgres:16
+
+    container_name: concurrent-balance-service-postgres
+
+    environment:
+      POSTGRES_DB: concurrent_balance_service_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+
+volumes:
+  postgres_data:
