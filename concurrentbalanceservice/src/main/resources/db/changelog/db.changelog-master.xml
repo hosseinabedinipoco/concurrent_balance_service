@@ -38,6 +38,11 @@
                 primaryKey="true"
                 nullable="false"/>
       </column>
+      <column name="transaction_uid" type="UUID">
+        <constraints
+            nullable="false"
+            unique="true"/>
+      </column>
       <column name="source_account_id" type="BIGINT"/>
       <column name="destination_account_id" type="BIGINT"/>
       <column name="amount" type="NUMERIC(19,2)">
@@ -65,40 +70,6 @@
             referencedTableName="accounts"
             referencedColumnNames="id"
             constraintName="fk_transactions_destination_account"/>
-  </changeSet>
-
-  <changeSet id="003-insert-accounts" author="hossein">
-    <insert tableName="accounts">
-      <column name="username" value="ali"/>
-      <column name="password" value="$2a$12$wnTa8TCL0Eap.W5qc3LQZelOT8rTom3HSm6fdI9jhgIOimZ2D27z2"/>
-      <column name="balance" valueNumeric="10000.00"/>
-      <column name="created_at" valueDate="2026-08-13T12:00:00"/>
-    </insert>
-    <insert tableName="accounts">
-      <column name="username" value="reza"/>
-      <column name="password" value="$2a$12$wnTa8TCL0Eap.W5qc3LQZelOT8rTom3HSm6fdI9jhgIOimZ2D27z2"/>
-      <column name="balance" valueNumeric="25000.00"/>
-      <column name="created_at" valueDate="2026-08-13T12:00:00"/>
-    </insert>
-    <insert tableName="accounts">
-      <column name="username" value="sara"/>
-      <column name="password" value="$2a$12$wnTa8TCL0Eap.W5qc3LQZelOT8rTom3HSm6fdI9jhgIOimZ2D27z2"/>
-      <column name="balance" valueNumeric="50000.00"/>
-      <column name="created_at" valueDate="2026-08-13T12:00:00"/>
-    </insert>
-    <insert tableName="accounts">
-      <column name="username" value="mohammad"/>
-      <column name="password" value="$2a$12$wnTa8TCL0Eap.W5qc3LQZelOT8rTom3HSm6fdI9jhgIOimZ2D27z2"/>
-      <column name="balance" valueNumeric="75000.00"/>
-      <column name="created_at" valueDate="2026-08-13T12:00:00"/>
-    </insert>
-    <insert tableName="accounts">
-      <column name="username" value="hossein"/>
-      <column name="password" value="$2a$12$wnTa8TCL0Eap.W5qc3LQZelOT8rTom3HSm6fdI9jhgIOimZ2D27z2"/>
-      <column name="balance" valueNumeric="100000.00"/>
-      <column name="created_at" valueDate="2026-08-13T12:00:00"/>
-    </insert>
-
   </changeSet>
 
 </databaseChangeLog>

@@ -1,16 +1,16 @@
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-    container_name: concurrent-balance-service
-    ports:
-      - "8080:8080"
-
-    depends_on: postgres
-
-    restart: unless-stopped
+#  app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#
+#    container_name: concurrent-balance-service
+#    ports:
+#      - "8080:8080"
+#
+#    depends_on: postgres
+#
+#    restart: unless-stopped
 
 
   postgres:

@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "transactions")
@@ -20,13 +21,11 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "source_account_id")
-    private Account sourceAccount;
+    private UUID transactionUid;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "destination_account_id")
-    private Account destinationAccount;
+    private Long sourceAccountId;
+
+    private Long destinationAccountId;
 
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal amount;
